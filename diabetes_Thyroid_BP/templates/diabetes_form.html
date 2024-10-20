@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}
+Diabetes Form
+{% endblock %}
+
+{% block style %}
+<style>
+    /* Add your custom CSS styles here */
+    .form-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    .form-group input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    .submit-btn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+    }
+    .submit-btn:hover {
+        background-color: #45a049;
+    }
+</style>
+{% endblock %}
+
+{% block index %}
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h1>Diabetes Form</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_glucose">Plasma Glucose Concentration (2 hours) in OGTT:</label>
+            {{ form.glucose }}
+        </div>
+        <div class="form-group">
+            <label for="id_blood_pressure">Diastolic Blood Pressure (mm Hg):</label>
+            {{ form.blood_pressure }}
+        </div>
+        <div class="form-group">
+            <label for="id_skin_thickness">Triceps Skin Fold Thickness (mm):</label>
+            {{ form.skin_thickness }}
+        </div>
+        <div class="form-group">
+            <label for="id_insulin">2-Hour Serum Insulin (mu U/ml):</label>
+            {{ form.insulin }}
+        </div>
+        <div class="form-group">
+            <label for="id_bmi">Body Mass Index (BMI):</label>
+            {{ form.bmi }}
+        </div>
+        <div class="form-group">
+            <label for="id_diabetes_pedigree_function">Diabetes Pedigree Function:</label>
+            {{ form.diabetes_pedigree_function }}
+        </div>
+        <div class="form-group">
+            <label for="id_age">Age:</label>
+            {{ form.age }}
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+</div>
+{% endblock %}

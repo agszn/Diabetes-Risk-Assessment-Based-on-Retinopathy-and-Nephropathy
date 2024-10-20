@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block title %}
+Diabetes Result
+{% endblock %}
+
+{% block style %}
+<style>
+    /* Internal CSS classes */
+    body {
+        background-color: #f0f0f0; /* Set background color */
+    }
+
+    .container {
+        max-width: 800px; /* Set maximum width for content */
+        margin: 0 auto; /* Center align content */
+        padding: 20px; /* Add padding */
+    }
+
+    .predictions-section {
+        margin-bottom: 20px;
+        background-color: #fff; /* Set background color */
+        padding: 20px; /* Add padding */
+        border-radius: 10px; /* Add border radius */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+    }
+
+    .predictions-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .predictions-section li {
+        margin-bottom: 5px;
+    }
+
+    .recommendations-section ul {
+        list-style-type: disc;
+        margin-left: 20px;
+    }
+
+    .food-recommendations-section h3 {
+        margin-top: 20px;
+    }
+
+    .food-recommendations-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    /* Animation */
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animated {
+        animation: slideIn 0.5s ease forwards;
+    }
+</style>
+{% endblock %}
+
+{% block index %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="predictions-section animated"> 
+        <h2>Predictions</h2>
+        <ul>
+            <li>Glucose: {{ glucose }}</li>
+            <li>Blood Pressure: {{ blood_pressure }}</li>
+            <li>Skin Thickness: {{ skin_thickness }}</li>
+            <li>Insulin: {{ insulin }}</li>
+            <li>BMI: {{ bmi }}</li>
+            <li>Diabetes Pedigree Function: {{ diabetes_pedigree_function }}</li>
+            <li>Age: {{ age }}</li>
+            <li><b>Complexity: {{ complexity }}</b></li>
+        </ul>
+    </div>
+
+    <div class="recommendations-section animated"> 
+        <h2>Recommendations</h2>
+        <ul>
+            {% for suggestion in suggestions %}
+                <li>{{ suggestion }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="recommended-doctors-section animated"> 
+        <h2>Recommended Doctors</h2>
+        <ul>
+            {% for doctor in recommended_doctors %}
+                <li>{{ doctor }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="recommended-medications-section animated">
+        <h2>Recommended Medications</h2>
+        <ul>
+            {% for medication in recommended_medications %}
+                <li>{{ medication }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="food-recommendations-section animated"> 
+        <h2>Food Recommendations</h2>
+        <h3>Recommended</h3>
+        <ul>
+            {% for food in food_recommendations.recommended %}
+                <li>{{ food }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Avoid</h3>
+        <ul>
+            {% for food in food_recommendations.avoid %}
+                <li>{{ food }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

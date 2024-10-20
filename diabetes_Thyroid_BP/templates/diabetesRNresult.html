@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title %}
+Diabetes Result
+{% endblock %}
+
+{% block style %}
+<style>
+
+    .container {
+        max-width: 800px; /* Set maximum width for content */
+        margin: 0 auto; /* Center align content */
+        padding: 20px; /* Add padding */
+    }
+
+    .predictions-section {
+        margin-bottom: 20px;
+        background-color: #fff; /* Set background color */
+        padding: 20px; /* Add padding */
+        border-radius: 10px; /* Add border radius */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+    }
+
+    .predictions-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .predictions-section li {
+        margin-bottom: 5px;
+    }
+
+    .recommendations-section ul {
+        list-style-type: disc;
+        margin-left: 20px;
+    }
+
+    .food-recommendations-section h3 {
+        margin-top: 20px;
+    }
+
+    .food-recommendations-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    /* Animation */
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animated {
+        animation: slideIn 0.5s ease forwards;
+    }
+</style>
+{% endblock %}
+
+{% block index %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Diabetes Detection Result</h1>
+    {% if has_diabetes %}
+        <h2>You have diabetes.</h2>
+        <div class="predictions-section animated">
+            <h3>Doctor's Recommendation:</h3>
+            <p>{{ doctor_recommendation }}</p>
+            <h3>Foods to Avoid:</h3>
+            <ul>
+                    <li>{{ foods_to_avoid }}</li>
+            </ul>
+            <h3>Foods to Eat:</h3>
+            <ul>
+                <li>{{ foods_to_eat }}</li>
+            </ul>
+            <h3>Exercises:</h3>
+            <ul>
+                    <li>{{ exercises }}</li>
+            </ul>
+            <h3>Diabetes Stage:</h3>
+            <p>{{ diabetes_stage }}</p>
+        </div>
+    {% else %}
+        <h2>You do not have diabetes.</h2>
+    {% endif %}
+</div>
+{% endblock %}

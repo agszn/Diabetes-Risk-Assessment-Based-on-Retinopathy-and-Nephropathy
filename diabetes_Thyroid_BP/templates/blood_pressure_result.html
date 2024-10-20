@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .result-heading {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .result-message {
+            margin-bottom: 20px;
+        }
+        .suggested-exercises {
+            margin-bottom: 20px;
+        }
+        .suggested-exercises li {
+            margin-left: 20px;
+        }
+        .recommended-doctors {
+            margin-bottom: 20px;
+        }
+        .recommended-doctors li {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="result-heading">Result</h1>
+        <div class="result-message">
+            {% if has_high_bp %}
+                <p>The patient has high blood pressure ({{ bp_level }}).</p>
+            {% else %}
+                <p>The patient's blood pressure is normal.</p>
+            {% endif %}
+        </div>
+        
+        <h2 class="suggested-exercises">Suggested Exercises:</h2>
+        <ul>
+            {% for exercise in suggested_exercises %}
+                <li>{{ exercise }}</li>
+            {% endfor %}
+        </ul>
+        
+        <h2 class="recommended-doctors">Recommended Doctors:</h2>
+        <ul>
+            {% for doctor in recommended_doctors %}
+                <li>{{ doctor }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

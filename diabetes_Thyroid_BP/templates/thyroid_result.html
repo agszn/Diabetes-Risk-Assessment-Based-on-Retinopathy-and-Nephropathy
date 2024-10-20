@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Blood Pressure Form
+{% endblock %}
+
+{% block style %}
+    <style>
+        .result-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .result-container h2 {
+            margin-top: 0;
+        }
+        .precautions-list {
+            margin-bottom: 20px;
+        }
+        .precautions-list li {
+            margin-bottom: 5px;
+        }
+        .doctors-list li {
+            margin-bottom: 5px;
+        }
+    </style>
+{% endblock %}
+
+{% block index %}
+{% endblock %}
+
+{% block content %}
+    <div class="result-container">
+        <h1>Thyroid Result</h1>
+        {% if has_thyroid_issues %}
+            <p>The patient has thyroid issues.</p>
+        {% else %}
+            <p>The patient does not have thyroid issues.</p>
+        {% endif %}
+        
+        <h2>Precautions:</h2>
+        <ul class="precautions-list">
+            {% for precaution in precautions %}
+                <li>{{ precaution }}</li>
+            {% endfor %}
+        </ul>
+        
+        <h2>Recommended Doctors:</h2>
+        <ul class="doctors-list">
+            {% for doctor in recommended_doctors %}
+                <li>{{ doctor }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

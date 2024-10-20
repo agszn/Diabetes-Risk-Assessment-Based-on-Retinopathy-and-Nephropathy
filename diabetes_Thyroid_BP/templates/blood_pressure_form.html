@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Blood Pressure Form
+{% endblock %}
+
+{% block style %}
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+{% endblock %}
+
+{% block index %}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Blood Pressure Form</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_level_of_hemoglobin">Level of Hemoglobin:</label>
+                {{ form.level_of_hemoglobin }}
+            </div>
+            <div class="form-group">
+                <label for="id_genetic_pedigree_coefficient">Genetic Pedigree Coefficient:</label>
+                {{ form.genetic_pedigree_coefficient }}
+            </div>
+            <div class="form-group">
+                <label for="id_age">Age:</label>
+                {{ form.age }}
+            </div>
+            <div class="form-group">
+                <label for="id_bmi">BMI:</label>
+                {{ form.bmi }}
+            </div>
+            <div class="form-group">
+                <label for="id_sex">Sex:</label>
+                {{ form.sex }}
+            </div>
+            <div class="form-group">
+                <label for="id_smoking">Smoking:</label>
+                {{ form.smoking }}
+            </div>
+            <div class="form-group">
+                <label for="id_smoking_frequency">Number of times smoked per day:</label>
+                {{ form.smoking_frequency }}
+            </div>
+            <div class="form-group">
+                <label for="id_physical_activity">Physical Activity:</label>
+                {{ form.physical_activity }}
+            </div>
+            <div class="form-group">
+                <label for="id_salt_content_in_the_diet">Salt Content in the Diet:</label>
+                {{ form.salt_content_in_the_diet }}
+            </div>
+            <div class="form-group">
+                <label for="id_alcohol_consumption_per_day">Alcohol Consumption per Day:</label>
+                {{ form.alcohol_consumption_per_day }}
+            </div>
+            <div class="form-group">
+                <label for="id_level_of_stress">Level of Stress:</label>
+                {{ form.level_of_stress }}
+            </div>
+            <div class="form-group">
+                <label for="id_chronic_kidney_disease">Chronic Kidney Disease:</label>
+                {{ form.chronic_kidney_disease }}
+            </div>
+            <div class="form-group">
+                <label for="id_adrenal_and_thyroid_disorders">Adrenal and Thyroid Disorders:</label>
+                {{ form.adrenal_and_thyroid_disorders }}
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+{% endblock %}

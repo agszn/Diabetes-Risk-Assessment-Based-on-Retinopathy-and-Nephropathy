@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Blood Pressure Form
+{% endblock %}
+
+{% block style %}
+    <style>
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-group input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+{% endblock %}
+
+{% block index %}
+{% endblock %}
+
+{% block content %}
+    <div class="form-container">
+
+    <h1>Thyroid Form</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.age.label_tag }}
+            {{ form.age }}
+        </div>
+        <div class="form-group">
+            {{ form.sex.label_tag }}
+            {{ form.sex }}
+        </div>
+        <div class="form-group">
+            {{ form.on_thyroxine.label_tag }}
+            {{ form.on_thyroxine }}
+        </div>
+        <div class="form-group">
+            {{ form.on_antithyroid_meds.label_tag }}
+            {{ form.on_antithyroid_meds }}
+        </div>
+        <div class="form-group">
+            {{ form.sick.label_tag }}
+            {{ form.sick }}
+        </div>
+        <div class="form-group">
+            {{ form.thyroid_surgery.label_tag }}
+            {{ form.thyroid_surgery }}
+        </div>
+        <div class="form-group">
+            {{ form.I131_treatment.label_tag }}
+            {{ form.I131_treatment }}
+        </div>
+        <div class="form-group">
+            {{ form.query_hypothyroid.label_tag }}
+            {{ form.query_hypothyroid }}
+        </div>
+        <div class="form-group">
+            {{ form.query_hyperthyroid.label_tag }}
+            {{ form.query_hyperthyroid }}
+        </div>
+        <div class="form-group">
+            {{ form.lithium.label_tag }}
+            {{ form.lithium }}
+        </div>
+        <div class="form-group">
+            {{ form.goitre.label_tag }}
+            {{ form.goitre }}
+        </div>
+        <div class="form-group">
+            {{ form.tumor.label_tag }}
+            {{ form.tumor }}
+        </div>
+        <div class="form-group">
+            {{ form.hypopituitary.label_tag }}
+            {{ form.hypopituitary }}
+        </div>
+        <div class="form-group">
+            {{ form.psych.label_tag }}
+            {{ form.psych }}
+        </div>
+        <div class="form-group">
+            {{ form.TSH_measured.label_tag }}
+            {{ form.TSH_measured }}
+        </div>
+        <div class="form-group">
+            {{ form.TSH.label_tag }}
+            {{ form.TSH }}
+        </div>
+        <div class="form-group">
+            {{ form.T3_measured.label_tag }}
+            {{ form.T3_measured }}
+        </div>
+        <div class="form-group">
+            {{ form.T3.label_tag }}
+            {{ form.T3 }}
+        </div>
+        <div class="form-group">
+            {{ form.TT4_measured.label_tag }}
+            {{ form.TT4_measured }}
+        </div>
+        <div class="form-group">
+            {{ form.TT4.label_tag }}
+            {{ form.TT4 }}
+        </div>
+        <div class="form-group">
+            {{ form.T4U_measured.label_tag }}
+            {{ form.T4U_measured }}
+        </div>
+        <div class="form-group">
+            {{ form.T4U.label_tag }}
+            {{ form.T4U }}
+        </div>
+        <div class="form-group">
+            {{ form.FTI_measured.label_tag }}
+            {{ form.FTI_measured }}
+        </div>
+        <div class="form-group">
+            {{ form.FTI.label_tag }}
+            {{ form.FTI }}
+        </div>
+        <div class="form-group">
+            {{ form.TBG_measured.label_tag }}
+            {{ form.TBG_measured }}
+        </div>
+        <div class="form-group">
+            {{ form.TBG.label_tag }}
+            {{ form.TBG }}
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}
